@@ -4,247 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AvantQuest - Roblox Development Group</title>
-    <!-- Links for CSS, Fonts, and JavaScript -->
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
-    <style>
-        /* General Styles */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: url('background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background: rgba(0, 0, 0, 0.8);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .header .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-        }
-
-        .nav-links li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #00d1ff;
-        }
-
-        /* Hero */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.7);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            color: white;
-            background-color: #00d1ff;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
-
-        .btn:hover {
-            background: #007b9e;
-        }
-
-        /* Sections */
-        section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        /* Login */
-        .login form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .login input {
-            padding: 10px;
-            margin: 10px;
-            width: 200px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .login button {
-            padding: 10px 20px;
-            background-color: #00d1ff;
-            border: none;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .login button:hover {
-            background: #007b9e;
-        }
-
-        /* Particle Canvas */
-        #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Particle Canvas -->
-    <canvas id="particle-canvas"></canvas>
-
-    <!-- Header Section -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="logo">AvantQuest</div>
-            <ul class="nav-links">
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#games">Our Games</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#community">Community</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#discord">Discord</a></li>
-            </ul>
+    <div id="particle-canvas"></div>
+    <header class="main-header">
+        <div class="logo">AvantQuest</div>
+        <nav class="nav-bar">
+            <a href="#about" class="nav-link">About Us</a>
+            <a href="#community" class="nav-link">Community</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <a href="#staff-login" class="nav-link">Staff Login</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <h1>Welcome to AvantQuest!</h1>
-        <p>Join us in creating unforgettable gaming experiences on Roblox.</p>
-        <a href="#games" class="btn">Explore Our Games</a>
-        <a href="#community" class="btn">Join Our Community</a>
-    </section>
+    <main>
+        <section id="hero">
+            <h1>Welcome to AvantQuest</h1>
+            <p>Your premier Roblox development team, creating innovative and engaging experiences.</p>
+        </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>AvantQuest is committed to crafting immersive Roblox worlds and leading innovation in the metaverse.</p>
-    </section>
+        <section id="about" class="section about">
+            <h2>About AvantQuest</h2>
+            <p>AvantQuest is dedicated to bringing creativity and innovation to Roblox. Our team of developers and designers work collaboratively to produce outstanding content for the platform.</p>
+        </section>
 
-    <!-- Login Section -->
-    <section id="login" class="login">
-        <h2>Staff Login</h2>
-        <form id="login-form" action="#dashboard" method="POST">
-            <input type="text" placeholder="Username" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-    </section>
+        <section id="community" class="section community">
+            <h2>Community Posts</h2>
+            <div id="community-posts">
+                <!-- Posts will dynamically load here -->
+            </div>
+            <button class="load-more">Load More</button>
+        </section>
 
-    <!-- Staff Dashboard Placeholder -->
-    <section id="dashboard" class="dashboard" style="display: none;">
-        <h2>Staff Dashboard</h2>
-        <p>Welcome to the staff dashboard! This is accessible only for verified members.</p>
-    </section>
+        <section id="contact" class="section contact">
+            <h2>Contact Us</h2>
+            <form action="mailto:malindiboys@gmail.com" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p>Email us at: <a href="mailto:malindiboys@gmail.com">malindiboys@gmail.com</a></p>
-    </section>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-    <!-- Discord Section -->
-    <section id="discord" class="discord">
-        <h2>Join Our Discord Server</h2>
-        <a href="https://discord.gg/your-invite-link" target="_blank" class="btn">Join Discord</a>
-    </section>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
 
-    <!-- Footer -->
-    <footer class="footer">
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+        <section id="discord" class="section discord">
+            <h2>Join Our Discord</h2>
+            <p>Stay connected with AvantQuest and be part of our community. <a href="https://discord.gg/your-server" target="_blank">Join now</a>.</p>
+        </section>
+
+        <section id="staff-login" class="section login">
+            <h2>Staff Login</h2>
+            <form action="/dashboard" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="main-footer">
         <p>&copy; 2024 AvantQuest. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript -->
-    <script>
-        // Particle Effect
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const particles = [];
-
-        document.addEventListener('mousemove', (e) => {
-            particles.push({
-                x: e.clientX,
-                y: e.clientY,
-                size: Math.random() * 5 + 2,
-                opacity: 1,
-            });
-        });
-
-        function updateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particles.length; i++) {
-                const p = particles[i];
-                p.y -= 1;
-                p.opacity -= 0.01;
-                if (p.opacity <= 0) {
-                    particles.splice(i, 1);
-                    i--;
-                } else {
-                    ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
-            requestAnimationFrame(updateParticles);
-        }
-        updateParticles();
-
-        // Simple Login Simulation
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.querySelector('#login').style.display = 'none';
-            document.querySelector('#dashboard').style.display = 'block';
-        });
-    </script>
+    <div id="settings-modal" class="settings-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Settings</h2>
+            <label>
+                <input type="checkbox" id="toggle-particles" checked> Enable Mouse Particles
+            </label>
+        </div>
+    </div>
 </body>
 </html>
