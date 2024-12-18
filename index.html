@@ -9,7 +9,7 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1e1e2f, #3a3a5e);
+            background: #f9f9f9;
             color: #fff;
             overflow-x: hidden;
         }
@@ -59,8 +59,11 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-            color: #fff;
+            background: #fff;
+            border-radius: 30px;
+            color: #000;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .hero h2 {
@@ -74,6 +77,18 @@
             max-width: 800px;
             margin: 0 auto;
             animation: fadeIn 2s ease-in-out;
+        }
+
+        .clock {
+            position: absolute;
+            top: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 2rem;
+            animation: slideDown 1s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .content {
@@ -112,12 +127,6 @@
             color: #aaa;
         }
 
-        .countdown {
-            font-size: 2rem;
-            margin-top: 20px;
-            font-weight: 600;
-        }
-
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
@@ -125,6 +134,11 @@
 
         @keyframes slideIn {
             0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            0% { transform: translateY(-50px); opacity: 0; }
             100% { transform: translateY(0); opacity: 1; }
         }
 
@@ -136,25 +150,23 @@
             .hero p {
                 font-size: 1rem;
             }
+
+            .clock {
+                font-size: 1.5rem;
+            }
         }
     </style>
     <script>
-        function updateCountdown() {
+        function updateClock() {
             const now = new Date();
-            const midnight = new Date();
-            midnight.setHours(24, 0, 0, 0);
-
-            const diff = midnight - now;
-
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('countdown').textContent = `${hours}h ${minutes}m ${seconds}s`;
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
         }
 
-        setInterval(updateCountdown, 1000);
-        window.onload = updateCountdown;
+        setInterval(updateClock, 1000);
+        window.onload = updateClock;
     </script>
 </head>
 <body>
@@ -169,9 +181,9 @@
     </header>
 
     <section class="hero">
+        <div class="clock" id="clock"></div>
         <h2>Welcome to AvantQuest</h2>
         <p>Your premier destination for innovative Roblox development projects.</p>
-        <div class="countdown" id="countdown"></div>
     </section>
 
     <section id="about">
