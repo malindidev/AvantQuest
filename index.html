@@ -10,7 +10,7 @@
             margin: 0;
             font-family: 'Poppins', sans-serif;
             background: #f9f9f9;
-            color: #fff;
+            color: #000;
             overflow-x: hidden;
         }
 
@@ -29,6 +29,7 @@
         header h1 {
             font-size: 24px;
             font-weight: 600;
+            color: #fff;
         }
 
         header nav {
@@ -59,17 +60,19 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 30px;
             color: #000;
             position: relative;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
         }
 
         .hero h2 {
             font-size: 3rem;
             margin-bottom: 10px;
             animation: fadeIn 1.5s ease-in-out;
+            color: #000;
         }
 
         .hero p {
@@ -77,6 +80,7 @@
             max-width: 800px;
             margin: 0 auto;
             animation: fadeIn 2s ease-in-out;
+            color: #000;
         }
 
         .clock {
@@ -103,20 +107,7 @@
         }
 
         .semi-circle {
-            position: absolute;
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 100px;
-            background: linear-gradient(45deg, rgba(255, 102, 204, 0.7), rgba(102, 102, 255, 0.7));
-            border-radius: 50% 50% 0 0;
-            filter: blur(15px);
-        }
-
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 2s forwards;
+            display: none;
         }
 
         footer {
@@ -188,7 +179,6 @@
 
     <section id="about">
         <div class="content">
-            <div class="semi-circle"></div>
             <h3>About Us</h3>
             <p>AvantQuest is a forward-thinking development group specializing in crafting unique Roblox experiences. From immersive games to powerful tools, we bring your visions to life.</p>
         </div>
