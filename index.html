@@ -3,232 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AvantQuest - Roblox Development Group</title>
+    <title>AvantQuest | Roblox Development Group</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #1f1c2c, #928dab);
-            color: #fff;
-            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            background-color: #1a1a1a;
         }
-
-        a {
-            text-decoration: none;
-            color: #ff9f43;
-            transition: color 0.3s ease-in-out;
-        }
-
-        a:hover {
-            color: #f368e0;
-        }
-
         header {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 3rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #ff9f43;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-        }
-
-        .nav-bar a {
-            margin-left: 2rem;
-            font-size: 1.1rem;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            transition: background 0.3s ease, color 0.3s ease;
-            border-radius: 5px;
-        }
-
-        .nav-bar a:hover {
-            background: #ff9f43;
-            color: #1f1c2c;
-        }
-
-        #hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            padding: 20px;
             text-align: center;
-            background: url('https://source.unsplash.com/1920x1080/?gaming,technology') no-repeat center center/cover;
-            filter: brightness(90%);
-            position: relative;
         }
-
-        #hero h1 {
-            font-size: 4rem;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            margin-bottom: 1rem;
+        header h1 {
+            font-size: 3rem;
         }
-
-        #hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+        nav {
+            text-align: center;
+            margin: 20px 0;
         }
-
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 50px;
+            text-align: center;
+        }
+        .about, .games, .discord {
+            background-color: #282c34;
+            margin: 20px auto;
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
         .btn {
             display: inline-block;
-            padding: 1rem 2rem;
-            background: #ff9f43;
-            color: #1f1c2c;
-            font-weight: bold;
-            border-radius: 30px;
-            transition: background 0.3s ease, transform 0.2s;
-        }
-
-        .btn:hover {
-            background: #f368e0;
-            transform: translateY(-5px);
-        }
-
-        section {
-            padding: 4rem 3rem;
-            text-align: center;
-        }
-
-        footer {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 1rem;
-            text-align: center;
-            color: #fff;
-        }
-
-        /* Additional Sections */
-        .about, .games, .community, .contact {
-            background: rgba(255, 255, 255, 0.1);
-            margin: 2rem auto;
-            padding: 2rem;
-            border-radius: 10px;
-            max-width: 1200px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-        }
-
-        .about h2, .games h2, .community h2, .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #ff9f43;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        .about p, .games p, .community p, .contact p {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #ddd;
-        }
-
-        .games img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-        }
-
-        .community ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-        }
-
-        .community ul li {
-            margin: 0 1rem;
-            font-size: 1.2rem;
-            background: #ff9f43;
-            padding: 0.5rem 1rem;
+            padding: 10px 20px;
+            color: #ffffff;
+            background: #4e54c8;
+            border: none;
             border-radius: 5px;
-            transition: transform 0.3s;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.3s;
         }
-
-        .community ul li:hover {
-            transform: scale(1.1);
-            background: #f368e0;
+        .btn:hover {
+            background: #8f94fb;
         }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        footer {
+            background: #333;
+            padding: 20px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">AvantQuest</div>
-        <nav class="nav-bar">
-            <a href="#hero">Home</a>
-            <a href="#about">About</a>
-            <a href="#games">Our Games</a>
-            <a href="#community">Community</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <h1>Welcome to AvantQuest</h1>
+        <p>Your go-to Roblox development team for amazing experiences.</p>
     </header>
-
-    <main>
-        <section id="hero" class="fade-in">
-            <h1>Welcome to AvantQuest!</h1>
-            <p>Your premier Roblox development team, crafting worlds like never before.</p>
-            <a href="#games" class="btn">Explore Our Games</a>
-            <a href="#community" class="btn">Join Our Community</a>
-        </section>
-
-        <section id="about" class="about fade-in">
-            <h2>About Us</h2>
-            <p>AvantQuest is a leading Roblox development group specializing in immersive game design and innovation. Our team works tirelessly to create the best gaming experiences for the Roblox platform.</p>
-        </section>
-
-        <section id="games" class="games fade-in">
-            <h2>Our Games</h2>
-            <img src="https://source.unsplash.com/1200x600/?game,roblox" alt="Game Showcase">
-            <p>We design and develop games that push the limits of creativity and engagement. From RPGs to simulators, we create experiences that players will love.</p>
-        </section>
-
-        <section id="community" class="community fade-in">
-            <h2>Community</h2>
-            <p>Join our community and connect with other players, developers, and fans. Be a part of something great!</p>
-            <ul>
-                <li>Events</li>
-                <li>Forums</li>
-                <li>Discord</li>
-                <li>Contests</li>
-            </ul>
-        </section>
-
-        <section id="contact" class="contact fade-in">
-            <h2>Contact Us</h2>
-            <p>Have any questions or inquiries? Reach out to us and we'll get back to you as soon as possible!</p>
-            <a href="mailto:support@avantquest.com" class="btn">Email Us</a>
-        </section>
-    </main>
-
+    <nav>
+        <a href="#about">About Us</a>
+        <a href="#games">Our Games</a>
+        <a href="#discord">Join Our Discord</a>
+    </nav>
+    <section id="about" class="about">
+        <h2 class="section-title">About Us</h2>
+        <p>AvantQuest is a dedicated Roblox development group passionate about creating innovative and immersive gaming experiences. With a team of skilled developers, designers, and storytellers, we strive to push the boundaries of what’s possible on the Roblox platform.</p>
+        <p>From adventure-filled RPGs to thrilling simulators, our games are crafted with precision and a deep love for the Roblox community.</p>
+    </section>
+    <section id="games" class="games">
+        <h2 class="section-title">Our Games</h2>
+        <p>We’re proud to showcase our portfolio of popular Roblox games, each designed to captivate and engage players of all ages.</p>
+        <ul>
+            <li><strong>QuestRunner:</strong> An epic adventure game with quests, battles, and treasure hunts.</li>
+            <li><strong>CityTycoon:</strong> Build your own thriving metropolis and compete with friends.</li>
+            <li><strong>SpeedRush:</strong> A high-speed racing game with dynamic tracks and customizable vehicles.</li>
+        </ul>
+        <a href="#" class="btn">Play Our Games</a>
+    </section>
+    <section id="discord" class="discord">
+        <h2 class="section-title">Join Our Discord</h2>
+        <p>Be a part of our vibrant community on Discord! Chat with developers, participate in events, and get exclusive sneak peeks at upcoming projects.</p>
+        <a href="https://discord.gg/your-discord-link" target="_blank" class="btn">Join Now</a>
+    </section>
     <footer>
-        <p>&copy; 2024 AvantQuest | Designed with passion for gaming innovation.</p>
+        <p>&copy; 2024 AvantQuest. All Rights Reserved.</p>
+        <p>Follow us on <a href="#" class="btn">Social Media</a></p>
     </footer>
 </body>
 </html>
