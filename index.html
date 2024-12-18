@@ -112,6 +112,12 @@
             color: #aaa;
         }
 
+        .countdown {
+            font-size: 2rem;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
@@ -132,6 +138,24 @@
             }
         }
     </style>
+    <script>
+        function updateCountdown() {
+            const now = new Date();
+            const midnight = new Date();
+            midnight.setHours(24, 0, 0, 0);
+
+            const diff = midnight - now;
+
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').textContent = `${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(updateCountdown, 1000);
+        window.onload = updateCountdown;
+    </script>
 </head>
 <body>
     <header>
@@ -147,6 +171,7 @@
     <section class="hero">
         <h2>Welcome to AvantQuest</h2>
         <p>Your premier destination for innovative Roblox development projects.</p>
+        <div class="countdown" id="countdown"></div>
     </section>
 
     <section id="about">
