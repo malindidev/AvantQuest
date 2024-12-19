@@ -1,64 +1,177 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AvantQuest - Redefining Roblox Gaming</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.0.0/tailwind.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.151.0/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
-</head>
-<body class="bg-gray-900 text-white">
-    <!-- Navbar -->
-    <header class="fixed w-full bg-gray-800 bg-opacity-80 z-50">
-        <nav class="container mx-auto flex justify-between items-center py-4 px-6">
-            <a href="#" class="text-3xl font-bold">AvantQuest</a>
-            <ul class="flex space-x-8">
-                <li><a href="#about" class="hover:text-blue-400">About</a></li>
-                <li><a href="#portfolio" class="hover:text-blue-400">Portfolio</a></li>
-                <li><a href="#team" class="hover:text-blue-400">Team</a></li>
-                <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    /* Header Styling */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #1e1e2f;
+        padding: 10px 20px;
+        color: #fff;
+    }
+    header .logo img {
+        height: 50px;
+        margin-right: 10px;
+    }
+    header nav ul {
+        list-style: none;
+        display: flex;
+    }
+    header nav ul li {
+        margin: 0 10px;
+    }
+    header nav ul li a {
+        text-decoration: none;
+        color: #fff;
+    }
 
-    <!-- Hero Section -->
-    <section class="hero h-screen bg-cover bg-center relative" style="background-image: url('hero-video.mp4');">
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div class="text-center">
-                <h1 class="text-6xl font-extrabold mb-4 animate-fade-in">Welcome to AvantQuest</h1>
-                <p class="text-2xl mb-6">Redefining Roblox Gaming Experiences</p>
-                <div class="flex space-x-4 justify-center">
-                    <a href="#portfolio" class="px-8 py-3 bg-blue-500 rounded-lg hover:bg-blue-600">Explore Games</a>
-                    <a href="#contact" class="px-8 py-3 border border-blue-500 rounded-lg hover:bg-blue-500">Join Us</a>
-                </div>
-            </div>
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        padding: 50px 20px;
+        background: linear-gradient(to bottom, #1e1e2f, #3e3e5f);
+        color: white;
+        animation: fadeIn 2s;
+    }
+    .hero .cta {
+        padding: 10px 20px;
+        background: #ff5722;
+        color: white;
+        border: none;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    /* Projects Section */
+    .projects-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+    .project-card {
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 300px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+        transform: scale(1.05);
+    }
+    .project-card img {
+        width: 100%;
+        height: auto;
+    }
+    .project-card h3 {
+        margin: 10px 0;
+    }
+
+    /* Forum Section */
+    .forum {
+        padding: 20px;
+        background: #fff;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .forum h2 {
+        margin-bottom: 20px;
+    }
+    .forum textarea {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    .forum button {
+        padding: 10px 20px;
+        background: #1e1e2f;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 10px;
+        background: #1e1e2f;
+        color: white;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h2>Innovate. Create. Collaborate.</h2>
+    <p>Join AvantQuest on a journey of groundbreaking Roblox development.</p>
+    <a href="#join" class="cta">Join Us</a>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <h2>Our Projects</h2>
+    <div class="projects-gallery">
+        <!-- Individual project cards -->
+        <div class="project-card">
+            <img src="project1.jpg" alt="Project 1">
+            <h3>Project Name</h3>
+            <p>Short description of the project.</p>
         </div>
-    </section>
+        <!-- Repeat for additional projects -->
+    </div>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-800">
-        <div class="container mx-auto">
-            <h2 class="text-5xl font-bold text-center mb-10">About Us</h2>
-            <div class="grid grid-cols-2 gap-10">
-                <div>
-                    <p class="text-lg text-gray-300">At AvantQuest, we’re passionate about pushing the boundaries of what’s possible in Roblox gaming. Our team combines creativity, technical skill, and a deep understanding of player experiences to craft unforgettable worlds.</p>
-                </div>
-                <div class="carousel"> <!-- Placeholder for image carousel --> </div>
-            </div>
-        </div>
-    </section>
+<!-- Forum Section -->
+<section id="forum" class="forum">
+    <h2>Community Forum</h2>
+    <textarea placeholder="Share your thoughts..."></textarea>
+    <button onclick="postMessage()">Post</button>
+    <div id="forum-messages"></div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 py-10">
-        <div class="container mx-auto text-center">
-            <p class="text-sm">&copy; 2024 AvantQuest. All Rights Reserved.</p>
-        </div>
-    </footer>
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 AvantQuest. All rights reserved.</p>
+</footer>
 
-    <script>
-        gsap.from(".hero h1", {duration: 1.5, y: -100, opacity: 0, ease: "bounce.out"});
-    </script>
-</body>
-</html>
+<script>
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Forum Message Posting
+    function postMessage() {
+        const messageBox = document.querySelector('textarea');
+        const messagesDiv = document.getElementById('forum-messages');
+        if (messageBox.value.trim() !== "") {
+            const message = document.createElement('div');
+            message.textContent = messageBox.value;
+            message.style.border = "1px solid #ccc";
+            message.style.margin = "10px 0";
+            message.style.padding = "10px";
+            message.style.borderRadius = "5px";
+            messagesDiv.appendChild(message);
+            messageBox.value = "";
+        }
+    }
+</script>
