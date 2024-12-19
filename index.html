@@ -89,6 +89,26 @@
             }
         }
 
+        @keyframes floatWave {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
         .content {
             background: rgba(37, 37, 39, 0.9);
             padding: 50px;
@@ -96,6 +116,7 @@
             border-radius: 15px;
             position: relative;
             overflow: hidden;
+            animation: slideIn 0.8s ease;
         }
 
         .content::before {
@@ -155,6 +176,11 @@
             text-decoration: underline;
         }
 
+        .floating-text {
+            display: inline-block;
+            animation: floatWave 2s infinite ease-in-out;
+        }
+
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -206,7 +232,7 @@
 
     <section id="hero">
         <div class="overlay"></div>
-        <h2>Welcome to AvantQuest</h2>
+        <h2 class="floating-text">Welcome to AvantQuest</h2>
         <p>Your ultimate destination for Roblox development innovation and creativity.</p>
     </section>
 
