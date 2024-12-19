@@ -81,6 +81,12 @@
             color: #000;
         }
 
+        .hero h2 span {
+            display: inline-block;
+            animation: floatLetter 2s ease-in-out infinite, shine 2s linear infinite;
+            position: relative;
+        }
+
         .hero p {
             font-size: 1.2rem;
             max-width: 800px;
@@ -143,6 +149,23 @@
             100% { transform: translateY(0); opacity: 1; }
         }
 
+        @keyframes floatLetter {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes shine {
+            0% { background-position: -100px; }
+            100% { background-position: 300px; }
+        }
+
+        .hero h2 span {
+            background: linear-gradient(90deg, #ffffff, #ff66cc, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200%;
+        }
+
         @media (max-width: 768px) {
             .hero h2 {
                 font-size: 2rem;
@@ -197,7 +220,12 @@
 
     <section class="hero">
         <div class="clock" id="clock">00:00:00</div>
-        <h2>Welcome to Avant Quest</h2>
+        <h2>
+            <span>W</span><span>e</span><span>l</span><span>c</span><span>o</span><span>m</span><span>e</span>
+            <span>t</span><span>o</span>
+            <span>A</span><span>v</span><span>a</span><span>n</span><span>t</span>
+            <span>Q</span><span>u</span><span>e</span><span>s</span><span>t</span>
+        </h2>
         <p>We are a Roblox Development Group dedicated to creating immersive and engaging experiences.</p>
     </section>
 
@@ -208,16 +236,16 @@
 
     <section id="projects" class="content">
         <h3>Our Projects</h3>
-        <p>Explore our portfolio of successful games and projects that showcase our expertise and creativity.</p>
+        <p>We have developed a variety of projects on Roblox that engage players with unique gameplay and stunning designs. Stay tuned for our latest releases!</p>
     </section>
 
     <section id="contact" class="content">
         <h3>Contact Us</h3>
-        <p>Have a question or want to work with us? Get in touch through our social media channels or email.</p>
+        <p>If you have any inquiries or would like to collaborate with us, feel free to reach out. We’d love to hear from you!</p>
     </section>
 
     <footer>
-        <p>&copy; 2024 AvantQuest. All rights reserved.</p>
+        <p>&copy; 2024 AvantQuest. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
