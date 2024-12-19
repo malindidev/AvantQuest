@@ -32,9 +32,26 @@
             color: #ff6f61;
         }
 
+        .clock {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff6f61;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+
         nav {
             display: flex;
             gap: 20px;
+            margin-left: 20px;
         }
 
         nav a {
@@ -116,7 +133,14 @@
             border-radius: 15px;
             position: relative;
             overflow: hidden;
-            animation: slideIn 0.8s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .content.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .content::before {
@@ -218,10 +242,34 @@
             }
         }
     </style>
+    <script>
+        function updateClock() {
+            const clockElement = document.getElementById("clock");
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        function onScroll() {
+            const sections = document.querySelectorAll(".content");
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    section.classList.add("visible");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", onScroll);
+        setInterval(updateClock, 1000);
+    </script>
 </head>
-<body class="scroll">
+<body class="scroll" onload="updateClock()">
     <header>
         <h1>AvantQuest</h1>
+        <div id="clock" class="clock"></div>
         <nav>
             <a href="#hero">Home</a>
             <a href="#about">About</a>
@@ -245,17 +293,17 @@
     <section id="projects" class="content">
         <div class="overlay"></div>
         <h2>Our Projects</h2>
-        <p>Check out some of our latest and greatest projects, ranging from immersive role-playing games to innovative simulators.</p>
+        <p>From immersive games to custom tools, AvantQuest delivers top-notch projects that captivate players and developers alike.</p>
     </section>
 
     <section id="contact" class="content">
         <div class="overlay"></div>
         <h2>Contact Us</h2>
-        <p>Have questions or want to collaborate? Reach out to us at <a href="mailto:contact@avantquest.com">contact@avantquest.com</a>.</p>
+        <p>Got questions or want to collaborate? Reach out to us via our social media platforms or email us at contact@avantquest.com.</p>
     </section>
 
     <footer>
-        <p>&copy; 2024 AvantQuest. Built with passion by our development team.</p>
+        <p>&copy; 2024 AvantQuest. All rights reserved. | <a href="#">Privacy Policy</a></p>
     </footer>
 </body>
 </html>
