@@ -1,177 +1,185 @@
-    /* Header Styling */
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #1e1e2f;
-        padding: 10px 20px;
-        color: #fff;
-    }
-    header .logo img {
-        height: 50px;
-        margin-right: 10px;
-    }
-    header nav ul {
-        list-style: none;
-        display: flex;
-    }
-    header nav ul li {
-        margin: 0 10px;
-    }
-    header nav ul li a {
-        text-decoration: none;
-        color: #fff;
-    }
-
-    /* Hero Section */
-    .hero {
-        text-align: center;
-        padding: 50px 20px;
-        background: linear-gradient(to bottom, #1e1e2f, #3e3e5f);
-        color: white;
-        animation: fadeIn 2s;
-    }
-    .hero .cta {
-        padding: 10px 20px;
-        background: #ff5722;
-        color: white;
-        border: none;
-        text-decoration: none;
-        border-radius: 5px;
-        display: inline-block;
-        margin-top: 20px;
-    }
-
-    /* Projects Section */
-    .projects-gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        padding: 20px;
-    }
-    .project-card {
-        background: white;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        overflow: hidden;
-        width: 300px;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-    }
-    .project-card:hover {
-        transform: scale(1.05);
-    }
-    .project-card img {
-        width: 100%;
-        height: auto;
-    }
-    .project-card h3 {
-        margin: 10px 0;
-    }
-
-    /* Forum Section */
-    .forum {
-        padding: 20px;
-        background: #fff;
-        margin: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .forum h2 {
-        margin-bottom: 20px;
-    }
-    .forum textarea {
-        width: 100%;
-        height: 100px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px;
-    }
-    .forum button {
-        padding: 10px 20px;
-        background: #1e1e2f;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    /* Footer */
-    footer {
-        text-align: center;
-        padding: 10px;
-        background: #1e1e2f;
-        color: white;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-</style>
-
-<!-- Hero Section -->
-<section class="hero">
-    <h2>Innovate. Create. Collaborate.</h2>
-    <p>Join AvantQuest on a journey of groundbreaking Roblox development.</p>
-    <a href="#join" class="cta">Join Us</a>
-</section>
-
-<!-- Projects Section -->
-<section id="projects">
-    <h2>Our Projects</h2>
-    <div class="projects-gallery">
-        <!-- Individual project cards -->
-        <div class="project-card">
-            <img src="project1.jpg" alt="Project 1">
-            <h3>Project Name</h3>
-            <p>Short description of the project.</p>
-        </div>
-        <!-- Repeat for additional projects -->
-    </div>
-</section>
-
-<!-- Forum Section -->
-<section id="forum" class="forum">
-    <h2>Community Forum</h2>
-    <textarea placeholder="Share your thoughts..."></textarea>
-    <button onclick="postMessage()">Post</button>
-    <div id="forum-messages"></div>
-</section>
-
-<!-- Footer -->
-<footer>
-    <p>&copy; 2024 AvantQuest. All rights reserved.</p>
-</footer>
-
-<script>
-    // Smooth Scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Forum Message Posting
-    function postMessage() {
-        const messageBox = document.querySelector('textarea');
-        const messagesDiv = document.getElementById('forum-messages');
-        if (messageBox.value.trim() !== "") {
-            const message = document.createElement('div');
-            message.textContent = messageBox.value;
-            message.style.border = "1px solid #ccc";
-            message.style.margin = "10px 0";
-            message.style.padding = "10px";
-            message.style.borderRadius = "5px";
-            messagesDiv.appendChild(message);
-            messageBox.value = "";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AvantQuest | Roblox Development Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #3a3a5e);
+            color: #fff;
+            overflow-x: hidden;
         }
-    }
-</script>
+
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        header nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #ff66cc;
+        }
+
+        section {
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            color: #fff;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin: 40px auto;
+            max-width: 800px;
+            text-align: left;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .semi-circle {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 100px;
+            background: linear-gradient(45deg, rgba(255, 102, 204, 0.7), rgba(102, 102, 255, 0.7));
+            border-radius: 50% 50% 0 0;
+            filter: blur(15px);
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AvantQuest</h1>
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Welcome to AvantQuest</h2>
+        <p>Your premier destination for innovative Roblox development projects.</p>
+    </section>
+
+    <section id="about">
+        <div class="content">
+            <div class="semi-circle"></div>
+            <h3>About Us</h3>
+            <p>AvantQuest is a forward-thinking development group specializing in crafting unique Roblox experiences. From immersive games to powerful tools, we bring your visions to life.</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="content">
+            <h3>Our Services</h3>
+            <p>We offer a range of services including scripting, UI design, 3D modeling, and project management. Our team is dedicated to delivering high-quality results tailored to your needs.</p>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="content">
+            <h3>Meet the Team</h3>
+            <p>Our team consists of talented developers, designers, and creators who are passionate about Roblox. Together, we push the boundaries of what's possible in virtual worlds.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="content">
+            <h3>Contact Us</h3>
+            <p>Have a project in mind? Reach out to us and let’s make it happen. Email us at <a href="mailto:contact@avantquest.com">contact@avantquest.com</a>.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 AvantQuest. All rights reserved.</p>
+    </footer>
+</body>
+</html>
