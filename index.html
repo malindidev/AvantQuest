@@ -127,6 +127,16 @@
             scroll-behavior: smooth;
         }
 
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -193,21 +203,25 @@
     </header>
 
     <section id="hero">
+        <div class="overlay"></div>
         <h2>Welcome to AvantQuest</h2>
         <p>Your ultimate destination for Roblox development innovation and creativity.</p>
     </section>
 
     <section id="about" class="content">
+        <div class="overlay"></div>
         <h2>About Us</h2>
         <p>AvantQuest is a dedicated Roblox development group aiming to bring unique and engaging experiences to the platform. We specialize in game design, scripting, and more.</p>
     </section>
 
     <section id="projects" class="content">
+        <div class="overlay"></div>
         <h2>Our Projects</h2>
         <p>Check out some of our latest and greatest projects, ranging from immersive role-playing games to innovative simulators.</p>
     </section>
 
     <section id="contact" class="content">
+        <div class="overlay"></div>
         <h2>Contact Us</h2>
         <p>Have questions or want to collaborate? Reach out to us at <a href="mailto:contact@avantquest.com">contact@avantquest.com</a>.</p>
     </section>
