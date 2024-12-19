@@ -3,171 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover top-tier Roblox game development services and join a thriving community of creators.">
-    <title>Roblox Game Development - The Best of the Best</title>
+    <title>AvantQuest - Innovating Roblox Worlds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.0.0/tailwind.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
-            color: #1e293b;
-        }
-
-        header {
-            background: #e2e8f0;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 3px solid #3b82f6;
-        }
-
-        header .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: #3b82f6;
-        }
-
-        header nav a {
-            color: #1e293b;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-
-        header nav a:hover {
-            color: #3b82f6;
-        }
-
-        .hero {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 90vh;
-            background: url('https://example.com/roblox-banner-light.jpg') center/cover no-repeat;
-            text-align: center;
-            color: #1e293b;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-        }
-
-        .hero a {
-            background: #3b82f6;
-            color: #fff;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-        }
-
-        .hero a:hover {
-            background: #2563eb;
-        }
-
-        .services {
-            padding: 50px 20px;
-            background: #f1f5f9;
-        }
-
-        .services h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #1e293b;
-        }
-
-        .services .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .services .card {
-            background: #ffffff;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .services .card h3 {
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            color: #3b82f6;
-        }
-
-        .services .card p {
-            font-size: 1rem;
-            color: #475569;
-        }
-
-        .footer {
-            background: #e2e8f0;
-            text-align: center;
-            padding: 20px;
-            color: #475569;
-        }
-
-        .footer a {
-            color: #3b82f6;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: #2563eb;
-        }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
 </head>
-<body>
-    <header>
-        <div class="logo">Roblox Game Dev</div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+<body class="bg-gray-900 text-gray-100">
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 w-full bg-gray-800 bg-opacity-75 z-50">
+        <nav class="container mx-auto flex justify-between items-center py-4 px-6">
+            <a href="#" class="text-2xl font-bold text-white">AvantQuest</a>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="hover:text-blue-500 transition">About</a></li>
+                <li><a href="#portfolio" class="hover:text-blue-500 transition">Portfolio</a></li>
+                <li><a href="#team" class="hover:text-blue-500 transition">Team</a></li>
+                <li><a href="#contact" class="hover:text-blue-500 transition">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <div>
-            <h1>Unleash Your Creativity with Roblox</h1>
-            <p>Join our team of top developers and bring your game ideas to life.</p>
-            <a href="#services">Explore Our Services</a>
+    <!-- Hero Section -->
+    <section class="hero bg-cover bg-center h-screen flex items-center justify-center" style="background-image: url('hero-image.jpg');">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold mb-4">Welcome to AvantQuest</h1>
+            <p class="text-xl mb-6">Pioneering Immersive Roblox Worlds</p>
+            <a href="#portfolio" class="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600 transition">Explore Our Games</a>
         </div>
     </section>
 
-    <section class="services" id="services">
-        <h2>Our Services</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Game Development</h3>
-                <p>Custom-built games tailored to your vision and audience.</p>
-            </div>
-            <div class="card">
-                <h3>Script Creation</h3>
-                <p>Advanced scripting to enhance gameplay mechanics.</p>
-            </div>
-            <div class="card">
-                <h3>Asset Design</h3>
-                <p>High-quality assets, from characters to environments.</p>
-            </div>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-semibold mb-6">About Us</h2>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto">AvantQuest is dedicated to creating immersive and innovative Roblox experiences that captivate players and inspire the community.</p>
         </div>
     </section>
 
-    <footer class="footer">
-        <p>&copy; 2024 Roblox Game Dev. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 AvantQuest. All Rights Reserved.</p>
+        </div>
     </footer>
+
+    <script>
+        // Example animation using GSAP
+        gsap.from(".hero h1", {duration: 1, y: -50, opacity: 0});
+    </script>
 </body>
 </html>
