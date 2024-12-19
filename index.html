@@ -3,52 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AvantQuest - Innovating Roblox Worlds</title>
+    <title>AvantQuest - Redefining Roblox Gaming</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.0.0/tailwind.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.151.0/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
 </head>
-<body class="bg-gray-900 text-gray-100">
+<body class="bg-gray-900 text-white">
     <!-- Navbar -->
-    <header class="fixed top-0 left-0 w-full bg-gray-800 bg-opacity-75 z-50">
+    <header class="fixed w-full bg-gray-800 bg-opacity-80 z-50">
         <nav class="container mx-auto flex justify-between items-center py-4 px-6">
-            <a href="#" class="text-2xl font-bold text-white">AvantQuest</a>
-            <ul class="flex space-x-6">
-                <li><a href="#about" class="hover:text-blue-500 transition">About</a></li>
-                <li><a href="#portfolio" class="hover:text-blue-500 transition">Portfolio</a></li>
-                <li><a href="#team" class="hover:text-blue-500 transition">Team</a></li>
-                <li><a href="#contact" class="hover:text-blue-500 transition">Contact</a></li>
+            <a href="#" class="text-3xl font-bold">AvantQuest</a>
+            <ul class="flex space-x-8">
+                <li><a href="#about" class="hover:text-blue-400">About</a></li>
+                <li><a href="#portfolio" class="hover:text-blue-400">Portfolio</a></li>
+                <li><a href="#team" class="hover:text-blue-400">Team</a></li>
+                <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero bg-cover bg-center h-screen flex items-center justify-center" style="background-image: url('hero-image.jpg');">
-        <div class="text-center">
-            <h1 class="text-5xl font-bold mb-4">Welcome to AvantQuest</h1>
-            <p class="text-xl mb-6">Pioneering Immersive Roblox Worlds</p>
-            <a href="#portfolio" class="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600 transition">Explore Our Games</a>
+    <section class="hero h-screen bg-cover bg-center relative" style="background-image: url('hero-video.mp4');">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div class="text-center">
+                <h1 class="text-6xl font-extrabold mb-4 animate-fade-in">Welcome to AvantQuest</h1>
+                <p class="text-2xl mb-6">Redefining Roblox Gaming Experiences</p>
+                <div class="flex space-x-4 justify-center">
+                    <a href="#portfolio" class="px-8 py-3 bg-blue-500 rounded-lg hover:bg-blue-600">Explore Games</a>
+                    <a href="#contact" class="px-8 py-3 border border-blue-500 rounded-lg hover:bg-blue-500">Join Us</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="py-20 bg-gray-800">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-semibold mb-6">About Us</h2>
-            <p class="text-lg text-gray-400 max-w-3xl mx-auto">AvantQuest is dedicated to creating immersive and innovative Roblox experiences that captivate players and inspire the community.</p>
+        <div class="container mx-auto">
+            <h2 class="text-5xl font-bold text-center mb-10">About Us</h2>
+            <div class="grid grid-cols-2 gap-10">
+                <div>
+                    <p class="text-lg text-gray-300">At AvantQuest, we’re passionate about pushing the boundaries of what’s possible in Roblox gaming. Our team combines creativity, technical skill, and a deep understanding of player experiences to craft unforgettable worlds.</p>
+                </div>
+                <div class="carousel"> <!-- Placeholder for image carousel --> </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 py-6">
+    <footer class="bg-gray-800 py-10">
         <div class="container mx-auto text-center">
-            <p>&copy; 2024 AvantQuest. All Rights Reserved.</p>
+            <p class="text-sm">&copy; 2024 AvantQuest. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Example animation using GSAP
-        gsap.from(".hero h1", {duration: 1, y: -50, opacity: 0});
+        gsap.from(".hero h1", {duration: 1.5, y: -100, opacity: 0, ease: "bounce.out"});
     </script>
 </body>
 </html>
