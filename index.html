@@ -3,313 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AvantQuest - Roblox Development Group</title>
+    <meta name="description" content="Discover top-tier Roblox game development services and join a thriving community of creators.">
+    <title>Roblox Game Development - The Best of the Best</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #1a1a1d, #0f0f10);
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
             color: #fff;
-            overflow-x: hidden;
         }
 
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(26, 26, 29, 0.95);
+            background: #0f172a;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-            z-index: 1000;
+            border-bottom: 3px solid #38bdf8;
         }
 
-        header h1 {
-            font-size: 28px;
-            margin: 0;
-            color: #ff6f61;
+        header .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #38bdf8;
         }
 
-        .clock {
-            font-size: 18px;
-            font-weight: bold;
-            color: #ff6f61;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.6;
-            }
-        }
-
-        nav {
-            display: flex;
-            gap: 20px;
-            margin-left: 20px;
-        }
-
-        nav a {
+        header nav a {
             color: #fff;
+            margin: 0 15px;
             text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-size: 1.2rem;
         }
 
-        nav a:hover {
-            color: #ff6f61;
+        header nav a:hover {
+            color: #38bdf8;
         }
 
-        section {
-            padding: 100px 20px;
-            position: relative;
-        }
-
-        #hero {
-            height: 100vh;
+        .hero {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #ff6f61, #1a1a1d);
+            align-items: center;
+            height: 90vh;
+            background: url('https://example.com/roblox-banner.jpg') center/cover no-repeat;
             text-align: center;
-            overflow: hidden;
+            color: #fff;
         }
 
-        #hero h2 {
-            font-size: 48px;
+        .hero h1 {
+            font-size: 3rem;
             margin-bottom: 20px;
-            animation: floatIn 1.5s ease;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
         }
 
-        #hero p {
-            font-size: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-            color: rgba(255, 255, 255, 0.8);
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
         }
 
-        @keyframes floatIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        .hero a {
+            background: #38bdf8;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
         }
 
-        @keyframes floatWave {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+        .hero a:hover {
+            background: #0ea5e9;
         }
 
-        @keyframes slideIn {
-            from {
-                transform: translateX(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+        .services {
+            padding: 50px 20px;
+            background: #0f172a;
         }
 
-        .content {
-            background: rgba(37, 37, 39, 0.9);
-            padding: 50px;
-            margin: 20px 0;
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+        .services h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
         }
 
-        .content.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .services .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
-        .content::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
-            z-index: 1;
-            animation: spin 8s linear infinite;
+        .services .card {
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
+        .services .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            color: #38bdf8;
         }
 
-        .content h2, .content p {
-            position: relative;
-            z-index: 2;
+        .services .card p {
+            font-size: 1rem;
         }
 
-        .scroll {
-            scroll-behavior: smooth;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 0;
-        }
-
-        footer {
+        .footer {
+            background: #0f172a;
             text-align: center;
             padding: 20px;
-            background: #1a1a1d;
-            color: #aaa;
-            margin-top: 40px;
+            color: #94a3b8;
         }
 
-        footer a {
-            color: #ff6f61;
+        .footer a {
+            color: #38bdf8;
             text-decoration: none;
         }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .floating-text {
-            display: inline-block;
-            animation: floatWave 2s infinite ease-in-out;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: center;
-                padding: 10px;
-            }
-
-            nav {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            #hero h2 {
-                font-size: 36px;
-            }
-
-            #hero p {
-                font-size: 16px;
-            }
-
-            .content {
-                padding: 30px;
-            }
-
-            .content h2 {
-                font-size: 24px;
-            }
-
-            .content p {
-                font-size: 14px;
-            }
-
-            footer {
-                font-size: 14px;
-            }
+        .footer a:hover {
+            color: #0ea5e9;
         }
     </style>
-    <script>
-        function updateClock() {
-            const clockElement = document.getElementById("clock");
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
-        }
-
-        function onScroll() {
-            const sections = document.querySelectorAll(".content");
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    section.classList.add("visible");
-                }
-            });
-        }
-
-        window.addEventListener("scroll", onScroll);
-        setInterval(updateClock, 1000);
-    </script>
 </head>
-<body class="scroll" onload="updateClock()">
+<body>
     <header>
-        <h1>AvantQuest</h1>
-        <div id="clock" class="clock"></div>
+        <div class="logo">Roblox Game Dev</div>
         <nav>
-            <a href="#hero">Home</a>
             <a href="#about">About</a>
-            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <section id="hero">
-        <div class="overlay"></div>
-        <h2 class="floating-text">Welcome to AvantQuest</h2>
-        <p>Your ultimate destination for Roblox development innovation and creativity.</p>
+    <section class="hero">
+        <div>
+            <h1>Unleash Your Creativity with Roblox</h1>
+            <p>Join our team of top developers and bring your game ideas to life.</p>
+            <a href="#services">Explore Our Services</a>
+        </div>
     </section>
 
-    <section id="about" class="content">
-        <div class="overlay"></div>
-        <h2>About Us</h2>
-        <p>AvantQuest is a dedicated Roblox development group aiming to bring unique and engaging experiences to the platform. We specialize in game design, scripting, and more.</p>
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Game Development</h3>
+                <p>Custom-built games tailored to your vision and audience.</p>
+            </div>
+            <div class="card">
+                <h3>Script Creation</h3>
+                <p>Advanced scripting to enhance gameplay mechanics.</p>
+            </div>
+            <div class="card">
+                <h3>Asset Design</h3>
+                <p>High-quality assets, from characters to environments.</p>
+            </div>
+        </div>
     </section>
 
-    <section id="projects" class="content">
-        <div class="overlay"></div>
-        <h2>Our Projects</h2>
-        <p>From immersive games to custom tools, AvantQuest delivers top-notch projects that captivate players and developers alike.</p>
-    </section>
-
-       id="projects" class="content">
-        <div class="overlay"></div>
-        <h2>Our Projects</h2>
-        <p>From immersive games to powerful tools, AvantQuest delivers top-notch experiences for the Roblox community.</p>
-    </section>
-
-    <section id="contact" class="content">
-        <div class="overlay"></div>
-        <h2>Contact Us</h2>
-        <p>Got questions or want to collaborate? Reach out via social media or email us at contact@avantquest.com.</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 AvantQuest. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    <footer class="footer">
+        <p>&copy; 2024 Roblox Game Dev. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
     </footer>
 </body>
 </html>
