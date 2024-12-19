@@ -87,52 +87,80 @@
             position: relative;
         }
 
-        .analog-clock {
-            position: absolute;
-            top: 20px;
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #fff;
+        }
+
+        .clock {
             width: 150px;
             height: 150px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 5px solid #fff;
+            border: 5px solid rgba(255, 255, 255, 0.7);
             border-radius: 50%;
+            position: relative;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            z-index: 1;
         }
 
-        .analog-clock .hand {
+        .clock .hand {
             position: absolute;
-            background: #000;
-            transform-origin: bottom center;
-            border-radius: 4px;
-        }
-
-        .analog-clock .hour {
-            width: 6px;
-            height: 40px;
-            bottom: 60px;
-        }
-
-        .analog-clock .minute {
-            width: 4px;
-            height: 60px;
-            bottom: 50px;
-        }
-
-        .analog-clock .second {
             width: 2px;
-            height: 70px;
-            bottom: 40px;
-            background: red;
+            background: #fff;
+            transform-origin: bottom;
+            transform: translateY(-50%) rotate(90deg);
+            border-radius: 2px;
         }
 
-        .analog-clock .numerals {
+        .clock .hour {
+            height: 40px;
+        }
+
+        .clock .minute {
+            height: 60px;
+        }
+
+        .clock .second {
+            height: 70px;
+            background: #ff66cc;
+        }
+
+        .clock .numerals {
             position: absolute;
-            font-size: 12px;
-            font-weight: bold;
-            color: #000;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes floatIn {
+            0% { transform: translateY(-30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes floatLetter {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         @media (max-width: 768px) {
@@ -140,30 +168,25 @@
                 font-size: 2rem;
             }
 
-            .analog-clock {
-                width: 100px;
-                height: 100px;
-            }
-
-            .analog-clock .hand {
-                width: 1px;
+            .hero p {
+                font-size: 1rem;
             }
         }
     </style>
     <script>
         function updateClockHands() {
             const now = new Date();
-            const seconds = now.getSeconds();
-            const minutes = now.getMinutes();
             const hours = now.getHours() % 12;
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
 
-            const secondHand = document.querySelector('.second');
-            const minuteHand = document.querySelector('.minute');
-            const hourHand = document.querySelector('.hour');
+            const hourDeg = (360 / 12) * hours + (30 / 60) * minutes;
+            const minuteDeg = (360 / 60) * minutes + (6 / 60) * seconds;
+            const secondDeg = (360 / 60) * seconds;
 
-            secondHand.style.transform = `rotate(${seconds * 6}deg)`;
-            minuteHand.style.transform = `rotate(${minutes * 6}deg)`;
-            hourHand.style.transform = `rotate(${hours * 30 + minutes / 2}deg)`;
+            document.querySelector('.hand.hour').style.transform = `translateY(-50%) rotate(${hourDeg}deg)`;
+            document.querySelector('.hand.minute').style.transform = `translateY(-50%) rotate(${minuteDeg}deg)`;
+            document.querySelector('.hand.second').style.transform = `translateY(-50%) rotate(${secondDeg}deg)`;
         }
 
         setInterval(updateClockHands, 1000);
@@ -181,7 +204,7 @@
     </header>
 
     <section class="hero">
-        <div class="analog-clock">
+        <div class="clock">
             <div class="hand hour"></div>
             <div class="hand minute"></div>
             <div class="hand second"></div>
@@ -192,7 +215,7 @@
             <span>A</span><span>v</span><span>a</span><span>n</span><span>t</span>
             <span>Q</span><span>u</span><span>e</span><span>s</span><span>t</span>
         </h2>
-        <p>We are a Roblox Development Group dedicated to creating immersive and engaging experiences.</p>
+        <p>We are a Roblox Development Group dedicated to creating immersive and engaging experiences for players. Our mission is to push the boundaries of creativity and technical innovation in the Roblox platform, delivering high-quality projects that captivate and inspire.</p>
     </section>
 
     <section id="about" class="content">
@@ -211,7 +234,7 @@
     </section>
 
     <footer>
-        &copy; 2024 AvantQuest. All rights reserved.
+        &copy;        2024 AvantQuest. All Rights Reserved.
     </footer>
 </body>
 </html>
