@@ -72,12 +72,12 @@
             padding: 20px;
             margin: 40px auto;
             max-width: 90%;
+            animation: floatIn 2s ease-in-out;
         }
 
         .hero h2 {
             font-size: 3rem;
             margin-bottom: 10px;
-            animation: fadeIn 1.5s ease-in-out;
             color: #000;
         }
 
@@ -85,7 +85,6 @@
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
-            animation: fadeIn 2s ease-in-out;
             color: #000;
         }
 
@@ -139,6 +138,11 @@
             100% { transform: translateY(0); opacity: 1; }
         }
 
+        @keyframes floatIn {
+            0% { transform: translateY(-30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
         @media (max-width: 768px) {
             .hero h2 {
                 font-size: 2rem;
@@ -186,44 +190,30 @@
         <h1>AvantQuest</h1>
         <nav>
             <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#team">Team</a>
+            <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="clock" id="clock"></div>
-        <h2>Welcome to AvantQuest</h2>
-        <p>Your premier destination for innovative Roblox development projects.</p>
+        <div class="clock" id="clock">00:00:00</div>
+        <h2>Welcome to Avant Quest</h2>
+        <p>We are a Roblox Development Group dedicated to creating immersive and engaging experiences.</p>
     </section>
 
-    <section id="about">
-        <div class="content">
-            <h3>About Us</h3>
-            <p>AvantQuest is a forward-thinking development group specializing in crafting unique Roblox experiences. From immersive games to powerful tools, we bring your visions to life.</p>
-        </div>
+    <section id="about" class="content">
+        <h3>About Us</h3>
+        <p>Avant Quest is a team of passionate developers and designers specializing in crafting unique Roblox experiences.</p>
     </section>
 
-    <section id="services">
-        <div class="content">
-            <h3>Our Services</h3>
-            <p>We offer a range of services including scripting, UI design, 3D modeling, and project management. Our team is dedicated to delivering high-quality results tailored to your needs.</p>
-        </div>
+    <section id="projects" class="content">
+        <h3>Our Projects</h3>
+        <p>Explore our portfolio of successful games and projects that showcase our expertise and creativity.</p>
     </section>
 
-    <section id="team">
-        <div class="content">
-            <h3>Meet the Team</h3>
-            <p>Our team consists of talented developers, designers, and creators who are passionate about Roblox. Together, we push the boundaries of what's possible in virtual worlds.</p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="content">
-            <h3>Contact Us</h3>
-            <p>Have a project in mind? Reach out to us and let’s make it happen. Email us at <a href="mailto:contact@avantquest.com">contact@avantquest.com</a>.</p>
-        </div>
+    <section id="contact" class="content">
+        <h3>Contact Us</h3>
+        <p>Have a question or want to work with us? Get in touch through our social media channels or email.</p>
     </section>
 
     <footer>
