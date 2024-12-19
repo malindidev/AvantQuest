@@ -64,41 +64,45 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 30px;
-            color: #fff;
+            color: #000;
             position: relative;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             padding: 20px;
             margin: 40px auto;
             max-width: 90%;
+            animation: floatIn 2s ease-in-out;
         }
 
         .hero h2 {
             font-size: 3rem;
             margin-bottom: 10px;
+            color: #fff;
         }
 
         .hero h2 span {
             display: inline-block;
-            animation: floatLetter 2s ease-in-out;
-            animation-fill-mode: forwards;
+            animation: floatLetter 2s ease-in-out infinite;
+            position: relative;
         }
 
         .hero p {
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
+            color: #fff;
         }
 
         .clock {
             position: absolute;
             top: 20px;
-            background: rgba(255, 255, 255, 0.7);
-            color: #000;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
             padding: 10px 20px;
             border-radius: 30px;
             font-size: 2rem;
+            animation: slideDown 1s ease-in-out;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
@@ -110,6 +114,11 @@
             margin: 40px auto;
             max-width: 800px;
             text-align: left;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .semi-circle {
+            display: none;
         }
 
         footer {
@@ -120,9 +129,29 @@
             color: #aaa;
         }
 
-        @keyframes floatLetter {
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
             0% { transform: translateY(50px); opacity: 0; }
             100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes floatIn {
+            0% { transform: translateY(-30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes floatLetter {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         @media (max-width: 768px) {
@@ -165,13 +194,6 @@
                 }
             });
         });
-
-        window.onload = () => {
-            const spans = document.querySelectorAll('.hero h2 span');
-            spans.forEach((span, index) => {
-                span.style.animationDelay = `${index * 0.1}s`;
-            });
-        };
     </script>
 </head>
 <body>
@@ -202,16 +224,17 @@
 
     <section id="projects" class="content">
         <h3>Our Projects</h3>
-        <p>We have developed a variety of projects on Roblox that engage players with unique gameplay and stunning designs. Stay tuned for our latest releases!</p>
+        <p>Avant Quest has worked on numerous projects that showcase our creativity and technical expertise. From game development to intricate scripting, we deliver unique experiences that captivate players worldwide.
+        </p>
     </section>
 
     <section id="contact" class="content">
         <h3>Contact Us</h3>
-        <p>If you have any inquiries or would like to collaborate with us, feel free to reach out. We’d love to hear from you!</p>
+        <p>Have a question or want to collaborate with us? Reach out via email at <a href="mailto:info@avantquest.com" style="color: #ff66cc;">info@avantquest.com</a> or join us on our social media channels!</p>
     </section>
 
     <footer>
-        <p>&copy; 2024 AvantQuest. All Rights Reserved.</p>
+        &copy; 2024 AvantQuest. All rights reserved.
     </footer>
 </body>
 </html>
