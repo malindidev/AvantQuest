@@ -3,260 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ForumHub</title>
+    <title>Fun Website</title>
     <style>
-        /* General Reset */
-        body, html {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: #f4f4f4;
-            color: #333;
+            background-color: #f0f8ff;
+            text-align: center;
         }
-
-        /* Header */
         header {
-            background: #6200ea;
+            background-color: #4CAF50;
             color: white;
-            padding: 10px 20px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
+            padding: 1rem;
         }
-
-        header .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        header nav {
-            float: right;
-        }
-
-        header nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 16px;
-        }
-
-        header nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            width: 250px;
-            height: calc(100% - 60px);
-            background: #3700b3;
-            color: white;
-            overflow-y: auto;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
-
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin: 10px 0;
-        }
-
-        .sidebar a:hover {
-            background: #6200ea;
-            padding: 5px;
-            border-radius: 5px;
-        }
-
-        /* Main Content */
         .main-content {
-            margin-left: 270px;
-            padding: 80px 20px;
+            margin: 2rem;
         }
-
-        .forum-section {
-            margin-bottom: 30px;
-        }
-
-        .forum-section h2 {
-            font-size: 24px;
-            color: #6200ea;
-        }
-
-        .forum-post {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .forum-post h3 {
-            font-size: 18px;
-            margin: 0 0 10px;
-        }
-
-        .forum-post p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        .forum-post .author {
-            font-size: 12px;
-            color: #888;
-            margin-top: 10px;
-        }
-
-        /* Chat Overlay */
-        .chat-overlay {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            width: 350px;
-            height: 500px;
-            background: white;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 10px 10px 0 0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .chat-overlay header {
-            background: #6200ea;
-            color: white;
-            padding: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 10px 10px 0 0;
-        }
-
-        .chat-overlay .messages {
-            flex: 1;
-            padding: 10px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .chat-overlay .messages .message {
-            background: #f4f4f4;
-            padding: 10px;
-            border-radius: 10px;
-            max-width: 80%;
-        }
-
-        .chat-overlay .messages .message.sent {
-            align-self: flex-end;
-            background: #e1bee7;
-        }
-
-        .chat-overlay input {
-            border: none;
-            padding: 10px;
-            font-size: 14px;
-            width: 100%;
-            box-sizing: border-box;
-            border-top: 1px solid #ddd;
-            border-radius: 0 0 10px 10px;
-        }
-
-        /* Profile Page */
-        .profile {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .profile .avatar {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: #6200ea;
-        }
-
-        .profile .details {
-            flex: 1;
-        }
-
-        .profile .details h2 {
-            font-size: 24px;
-            margin: 0 0 10px;
-        }
-
-        .profile .details p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        .profile .details button {
-            margin-top: 10px;
+        .button {
+            display: inline-block;
             padding: 10px 20px;
-            background: #6200ea;
+            margin: 10px;
+            font-size: 16px;
             color: white;
+            background-color: #008CBA;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
-
-        .profile .details button:hover {
-            background: #3700b3;
+        .button:hover {
+            background-color: #005f6a;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">ForumHub</div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Forums</a>
-            <a href="#">Profile</a>
-            <a href="#">Settings</a>
-        </nav>
+        <h1>Welcome to Your Fun Website!</h1>
     </header>
-
-    <aside class="sidebar">
-        <h3>Categories</h3>
-        <a href="#">General Discussion</a>
-        <a href="#">Tech Talk</a>
-        <a href="#">Gaming</a>
-        <a href="#">Off Topic</a>
-    </aside>
-
-    <main class="main-content">
-        <section class="forum-section">
-            <h2>Latest Posts</h2>
-            <div class="forum-post">
-                <h3>How to build a PC?</h3>
-                <p>Looking for some tips on building my first PC. Any recommendations?</p>
-                <div class="author">Posted by User123</div>
-            </div>
-            <div class="forum-post">
-                <h3>Best programming languages in 2024</h3>
-                <p>What are the best programming languages to learn for a career in tech?</p>
-                <div class="author">Posted by CoderGeek</div>
-            </div>
-        </section>
-    </main>
-
-    <div class="chat-overlay">
-        <header>Chat</header>
-        <div class="messages">
-            <div class="message received">Hey, how's it going?</div>
-            <div class="message sent">All good! What about you?</div>
-        </div>
-        <input type="text" placeholder="Type a message...">
+    <div class="main-content">
+        <p>Are you bored? Click the buttons below for random fun!</p>
+        <button class="button" onclick="randomJoke()">Tell me a Joke</button>
+        <button class="button" onclick="randomFact()">Show me a Fact</button>
+        <p id="output" style="margin-top: 20px; font-size: 18px;"></p>
     </div>
+
+    <script>
+        const jokes = [
+            "Why don't skeletons fight each other? They don't have the guts.",
+            "What do you call fake spaghetti? An impasta!",
+            "Why couldn't the bicycle stand up by itself? It was two-tired!"
+        ];
+
+        const facts = [
+            "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3000 years old and still edible!",
+            "Octopuses have three hearts!",
+            "Bananas are berries, but strawberries aren't!"
+        ];
+
+        function randomJoke() {
+            const joke = jokes[Math.floor(Math.random() * jokes.length)];
+            document.getElementById('output').textContent = joke;
+        }
+
+        function randomFact() {
+            const fact = facts[Math.floor(Math.random() * facts.length)];
+            document.getElementById('output').textContent = fact;
+        }
+    </script>
 </body>
 </html>
