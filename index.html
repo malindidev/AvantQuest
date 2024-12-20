@@ -18,6 +18,39 @@
             color: inherit;
         }
 
+        /* Loading Screen */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10000;
+        }
+        #loading-text {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            animation: light-effect 2s infinite;
+        }
+        @keyframes light-effect {
+            0% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff8000;
+            }
+            50% {
+                text-shadow: 0 0 20px #ff8000, 0 0 30px #ff8000, 0 0 40px #ff8000;
+            }
+            100% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff8000;
+            }
+        }
+        
         /* Header */
         header {
             position: sticky;
@@ -86,52 +119,6 @@
             background: #e0a800;
         }
 
-        /* Featured Games Section */
-        .featured-games {
-            padding: 3rem 2rem;
-            background: #fff;
-            text-align: center;
-        }
-        .featured-games h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-        .featured-games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        .game-card {
-            background: #f1f1f1;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-        }
-        .game-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .game-card p {
-            margin-bottom: 1rem;
-        }
-        .game-card button {
-            background: #004085;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .game-card button:hover {
-            background: #0056b3;
-        }
-
         /* Footer */
         footer {
             background: #343a40;
@@ -150,13 +137,18 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div id="loading-text">AvantQuest</div>
+        <div style="font-size: 1rem;">Loading, please wait...</div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="logo">AvantQuest</div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#games">Games</a></li>
                 <li><a href="#resources">Resources</a></li>
                 <li><a href="#community">Community</a></li>
                 <li><a href="#about">About Us</a></li>
@@ -175,33 +167,6 @@
         <button>Join the Adventure</button>
     </section>
 
-    <!-- Featured Games Section -->
-    <section id="games" class="featured-games">
-        <h2>Featured Games</h2>
-        <div class="featured-games-grid">
-            <div class="game-card">
-                <h3>Game Title 1</h3>
-                <p>Explore a thrilling world of adventures.</p>
-                <button>Play Now</button>
-            </div>
-            <div class="game-card">
-                <h3>Game Title 2</h3>
-                <p>Test your skills in this fun and challenging game.</p>
-                <button>Play Now</button>
-            </div>
-            <div class="game-card">
-                <h3>Game Title 3</h3>
-                <p>Build, create, and share your imagination.</p>
-                <button>Play Now</button>
-            </div>
-            <div class="game-card">
-                <h3>Game Title 4</h3>
-                <p>Dive into an immersive storyline.</p>
-                <button>Play Now</button>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2023 AvantQuest. All rights reserved.</p>
@@ -209,5 +174,14 @@
             <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
         </p>
     </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 3000); // Simulate loading duration
+        });
+    </script>
 </body>
 </html>
