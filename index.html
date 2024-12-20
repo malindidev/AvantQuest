@@ -48,14 +48,14 @@
             width: 0;
             height: 100%;
             background: linear-gradient(90deg, #ff8000, #ff0000);
-            animation: loading-animation 3s linear forwards;
+            animation: loading-animation 5s linear forwards;
         }
 
         #loading-text {
-            font-size: 3rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
             text-align: center;
-            animation: text-glow 3s infinite;
+            animation: text-glow 3s infinite, text-scale 5s infinite;
         }
 
         @keyframes text-glow {
@@ -64,6 +64,15 @@
             }
             50% {
                 text-shadow: 0 0 20px #ff8000, 0 0 40px #ff0000, 0 0 60px #ff0000;
+            }
+        }
+
+        @keyframes text-scale {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
             }
         }
 
@@ -196,6 +205,8 @@
                 <li><a href="#community">Community</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms of Service</a></li>
             </ul>
         </nav>
         <div class="search-bar">
@@ -210,11 +221,23 @@
         <button>Join the Adventure</button>
     </section>
 
+    <!-- Privacy Policy Section -->
+    <section id="privacy" style="padding: 2rem; text-align: center;">
+        <h2>Privacy Policy</h2>
+        <p>Your privacy is important to us. Here at AvantQuest, we ensure your data is secure and never shared without your consent.</p>
+    </section>
+
+    <!-- Terms of Service Section -->
+    <section id="terms" style="padding: 2rem; text-align: center;">
+        <h2>Terms of Service</h2>
+        <p>By using AvantQuest, you agree to our terms and conditions. Please contact support for any clarifications.</p>
+    </section>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2023 AvantQuest. All rights reserved.</p>
         <p>
-            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+            <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a> | <a href="#contact">Contact Us</a>
         </p>
     </footer>
 
@@ -223,7 +246,7 @@
             const loadingScreen = document.getElementById('loading-screen');
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
-            }, 3000); // Simulate loading duration
+            }, 5000); // Simulate loading duration
         });
     </script>
 </body>
