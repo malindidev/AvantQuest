@@ -3,72 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Website</title>
+    <title>AvantQuest - Roblox Development Hub</title>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f8ff;
-            text-align: center;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
         }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
         header {
-            background-color: #4CAF50;
-            color: white;
+            position: sticky;
+            top: 0;
+            background: #0d6efd;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+        nav ul li {
+            position: relative;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        .search-bar input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
+            color: #fff;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero button {
+            background: #ffc107;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .hero button:hover {
+            background: #e0a800;
+        }
+
+        /* Sections */
+        .section {
+            padding: 2rem;
+        }
+        .featured-games {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .game-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+        .game-card button {
+            background: #0d6efd;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .game-card button:hover {
+            background: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background: #343a40;
+            color: #ccc;
+            text-align: center;
             padding: 1rem;
         }
-        .main-content {
-            margin: 2rem;
-        }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
-            color: white;
-            background-color: #008CBA;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: #005f6a;
+        footer a {
+            color: #0d6efd;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Welcome to Your Fun Website!</h1>
+        <div class="logo">AvantQuest</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
     </header>
-    <div class="main-content">
-        <p>Are you bored? Click the buttons below for random fun!</p>
-        <button class="button" onclick="randomJoke()">Tell me a Joke</button>
-        <button class="button" onclick="randomFact()">Show me a Fact</button>
-        <p id="output" style="margin-top: 20px; font-size: 18px;"></p>
-    </div>
 
-    <script>
-        const jokes = [
-            "Why don't skeletons fight each other? They don't have the guts.",
-            "What do you call fake spaghetti? An impasta!",
-            "Why couldn't the bicycle stand up by itself? It was two-tired!"
-        ];
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Unleash Your Creativity in Roblox!</h1>
+        <button>Join the Adventure</button>
+    </section>
 
-        const facts = [
-            "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3000 years old and still edible!",
-            "Octopuses have three hearts!",
-            "Bananas are berries, but strawberries aren't!"
-        ];
+    <!-- Featured Games Section -->
+    <section id="games" class="section">
+        <h2>Featured Games</h2>
+        <div class="featured-games">
+            <div class="game-card">
+                <h3>Game Title 1</h3>
+                <p>Short description about the game.</p>
+                <button>Play Now</button>
+            </div>
+            <div class="game-card">
+                <h3>Game Title 2</h3>
+                <p>Short description about the game.</p>
+                <button>Play Now</button>
+            </div>
+            <!-- Add more game cards -->
+        </div>
+    </section>
 
-        function randomJoke() {
-            const joke = jokes[Math.floor(Math.random() * jokes.length)];
-            document.getElementById('output').textContent = joke;
-        }
-
-        function randomFact() {
-            const fact = facts[Math.floor(Math.random() * facts.length)];
-            document.getElementById('output').textContent = fact;
-        }
-    </script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 AvantQuest. All rights reserved.</p>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+    </footer>
 </body>
 </html>
