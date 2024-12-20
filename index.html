@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AvantQuest - Roblox Development Hub</title>
+    <title>AvantQuest - Modern Roblox Development Hub</title>
     <style>
         /* General Styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #eaf4fc;
-            color: #333;
+            background-color: #121212;
+            color: #f0f0f0;
+            overflow-x: hidden;
         }
         a {
             text-decoration: none;
@@ -33,29 +34,53 @@
             flex-direction: column;
             z-index: 10000;
         }
+
+        #loading-bar {
+            width: 80%;
+            height: 20px;
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        #loading-progress {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #ff8000, #ff0000);
+            animation: loading-animation 3s linear forwards;
+        }
+
         #loading-text {
-            font-size: 2rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
             text-align: center;
-            animation: light-effect 2s infinite;
+            animation: text-glow 3s infinite;
         }
-        @keyframes light-effect {
-            0% {
-                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff8000;
+
+        @keyframes text-glow {
+            0%, 100% {
+                text-shadow: 0 0 10px #ff8000, 0 0 20px #ff8000, 0 0 40px #ff0000;
             }
             50% {
-                text-shadow: 0 0 20px #ff8000, 0 0 30px #ff8000, 0 0 40px #ff8000;
-            }
-            100% {
-                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff8000;
+                text-shadow: 0 0 20px #ff8000, 0 0 40px #ff0000, 0 0 60px #ff0000;
             }
         }
-        
+
+        @keyframes loading-animation {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
         /* Header */
         header {
             position: sticky;
             top: 0;
-            background: #004085;
+            background: #1e1e1e;
             color: white;
             padding: 1rem 2rem;
             display: flex;
@@ -65,9 +90,9 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: bold;
-            color: #ffc107;
+            color: #ff8000;
         }
         nav ul {
             list-style: none;
@@ -80,7 +105,7 @@
             transition: color 0.3s;
         }
         nav ul li a:hover {
-            color: #ffc107;
+            color: #ff8000;
         }
         .search-bar {
             display: flex;
@@ -96,43 +121,59 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #004085 0%, #6610f2 100%);
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #1e1e1e 0%, #333 100%);
             color: white;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            position: relative;
         }
         .hero h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
+            animation: fade-in 2s ease-in-out;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
         }
         .hero button {
-            background: #ffc107;
+            background: #ff8000;
             border: none;
             padding: 1rem 2rem;
             font-size: 1.2rem;
-            color: #004085;
+            color: white;
             border-radius: 8px;
             cursor: pointer;
             transition: background 0.3s;
         }
         .hero button:hover {
-            background: #e0a800;
+            background: #cc6600;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Footer */
         footer {
-            background: #343a40;
+            background: #1e1e1e;
             color: #ccc;
             text-align: center;
             padding: 2rem;
         }
         footer a {
-            color: #ffc107;
+            color: #ff8000;
             margin: 0 0.5rem;
             transition: color 0.3s;
         }
         footer a:hover {
-            color: #e0a800;
+            color: #cc6600;
         }
     </style>
 </head>
@@ -140,7 +181,9 @@
     <!-- Loading Screen -->
     <div id="loading-screen">
         <div id="loading-text">AvantQuest</div>
-        <div style="font-size: 1rem;">Loading, please wait...</div>
+        <div id="loading-bar">
+            <div id="loading-progress"></div>
+        </div>
     </div>
 
     <!-- Header -->
