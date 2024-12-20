@@ -7,12 +7,11 @@
     <style>
         /* General Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            background-color: #eaf4fc;
             color: #333;
-            background-color: #f9f9f9;
         }
         a {
             text-decoration: none;
@@ -23,26 +22,32 @@
         header {
             position: sticky;
             top: 0;
-            background: #0d6efd;
-            color: #fff;
+            background: #004085;
+            color: white;
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
+            color: #ffc107;
         }
         nav ul {
             list-style: none;
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
         }
-        nav ul li {
-            position: relative;
+        nav ul li a {
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffc107;
         }
         .search-bar {
             display: flex;
@@ -52,25 +57,28 @@
             padding: 0.5rem;
             border: none;
             border-radius: 4px;
+            width: 200px;
         }
 
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
-            color: #fff;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #004085 0%, #6610f2 100%);
+            color: white;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         }
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
         .hero button {
             background: #ffc107;
             border: none;
             padding: 1rem 2rem;
-            border-radius: 5px;
-            font-size: 1rem;
+            font-size: 1.2rem;
+            color: #004085;
+            border-radius: 8px;
             cursor: pointer;
             transition: background 0.3s;
         }
@@ -78,28 +86,42 @@
             background: #e0a800;
         }
 
-        /* Sections */
-        .section {
-            padding: 2rem;
-        }
+        /* Featured Games Section */
         .featured-games {
+            padding: 3rem 2rem;
+            background: #fff;
+            text-align: center;
+        }
+        .featured-games h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .featured-games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
         .game-card {
-            background: #fff;
-            border-radius: 8px;
+            background: #f1f1f1;
             padding: 1rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .game-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        .game-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .game-card p {
+            margin-bottom: 1rem;
         }
         .game-card button {
-            background: #0d6efd;
-            color: #fff;
+            background: #004085;
+            color: white;
             border: none;
             padding: 0.5rem 1rem;
             border-radius: 4px;
@@ -115,10 +137,15 @@
             background: #343a40;
             color: #ccc;
             text-align: center;
-            padding: 1rem;
+            padding: 2rem;
         }
         footer a {
-            color: #0d6efd;
+            color: #ffc107;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #e0a800;
         }
     </style>
 </head>
@@ -142,33 +169,45 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <h1>Unleash Your Creativity in Roblox!</h1>
+        <p>Discover, build, and connect with a vibrant community of creators.</p>
         <button>Join the Adventure</button>
     </section>
 
     <!-- Featured Games Section -->
-    <section id="games" class="section">
+    <section id="games" class="featured-games">
         <h2>Featured Games</h2>
-        <div class="featured-games">
+        <div class="featured-games-grid">
             <div class="game-card">
                 <h3>Game Title 1</h3>
-                <p>Short description about the game.</p>
+                <p>Explore a thrilling world of adventures.</p>
                 <button>Play Now</button>
             </div>
             <div class="game-card">
                 <h3>Game Title 2</h3>
-                <p>Short description about the game.</p>
+                <p>Test your skills in this fun and challenging game.</p>
                 <button>Play Now</button>
             </div>
-            <!-- Add more game cards -->
+            <div class="game-card">
+                <h3>Game Title 3</h3>
+                <p>Build, create, and share your imagination.</p>
+                <button>Play Now</button>
+            </div>
+            <div class="game-card">
+                <h3>Game Title 4</h3>
+                <p>Dive into an immersive storyline.</p>
+                <button>Play Now</button>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2023 AvantQuest. All rights reserved.</p>
-        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        <p>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+        </p>
     </footer>
 </body>
 </html>
